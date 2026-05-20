@@ -4,6 +4,7 @@ import Greetings from '../components/Home/Greetings'
 import MiniCard from '../components/Home/MiniCard'
 import { BsCashCoin } from 'react-icons/bs'
 import { GrInProgress } from 'react-icons/gr'
+
 import RecentOrders from '../components/Home/RecentOrders'
 import PopularDishes from '../components/Home/PopularDishes'
 
