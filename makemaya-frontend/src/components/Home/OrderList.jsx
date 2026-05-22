@@ -4,7 +4,7 @@ import { FaCircle } from 'react-icons/fa';
 
 const OrderList = () => {
   return (
-    <div className='flex items-center gap-5 mb-2'>
+    <div className='flex items-center gap-5 mb-3'>
         <button className='bg-[#f6b100] p-4 text-xl font-bold rounded-lg'>AM</button>
         <div className='flex items-center justify-between w-[100%]'>
             <div className='flex flex-col items-start gap-1'>
