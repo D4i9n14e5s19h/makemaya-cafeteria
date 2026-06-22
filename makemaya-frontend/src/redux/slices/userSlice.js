@@ -6,6 +6,7 @@ const initialState = {
     email: "",
     phone: "",
     role: "",
+    loading: false,
     isAuth: false
 }
 
@@ -21,6 +22,7 @@ const userSlice = createSlice({
             state.email = email;
             state.role = role;
             state.isAuth = true;
+            state.loading = false;
         },
 
         removeUser : (state) => {
@@ -30,6 +32,7 @@ const userSlice = createSlice({
             state.email = "";
             state.role = "";
             state.isAuth = false;
+            state.loading = false;
 
         },
 }

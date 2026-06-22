@@ -62,12 +62,17 @@ function Layout() {
 
 function ProtectedRoutes({children}) {
   const { isAuth } = useSelector(state => state.user);
-  if(!isAuth) {
-    return <Navigate to="/auth" />
+  const isLoading = useLoadData();
+
+  if (isLoading) return <FullScreenLoader />;
+
+  if (!isAuth) {
+    return <Navigate to="/auth" replace />;
   }
 
-   return children;
+  return children;
 }
+
 
 function App() {
   return (
