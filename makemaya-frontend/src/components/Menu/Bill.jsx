@@ -11,7 +11,7 @@ import { enqueueSnackbar } from "notistack";
 import { useMutation } from "@tanstack/react-query";
 import { removeAllItems } from "../../redux/slices/cartSlice";
 import { removeCustomer } from "../../redux/slices/customerSlice";
-import Invoice from "../invoice/Invoice";
+import Invoice from "../Invoice/Invoice";
 
 function loadScript(src) {
   return new Promise((resolve) => {
