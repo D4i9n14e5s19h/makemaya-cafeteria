@@ -14,6 +14,7 @@ connectDB();
 app.use(cors({
     origin: ['http://localhost:5173',
     'https://makemaya-cafeteria-frontend.vercel.app',
+     'https://makemaya-cafeteria-frontend-lokiu60zd-makemaya-cafeteria.vercel.app'
     ],
     credentials: true
     
