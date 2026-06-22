@@ -19,7 +19,7 @@ const useLoadData = () => {
             } catch (error) {
                 dispatch(removeUser());
             } finally {
-                setIsLoading(false);
+                dispatch(setIsLoading(false));
             }
         };
 
