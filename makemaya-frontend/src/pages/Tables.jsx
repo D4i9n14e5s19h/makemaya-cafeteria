@@ -3,11 +3,28 @@ import BottomNav from '../components/shared/BottomNav'
 import BackButton from '../components/shared/BackButton'
 import TableCard from '../components/Tables/TableCard'
 import { tables } from '../constants'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import { getTables } from '../https'
+import { enqueueSnackbar } from 'notistack'
 
 
 const Tables = () => {
 
     const [status, setStatus] = useState('all');
+
+    const { data : resData, isError } = useQuery({
+      queryKey: ["tables"],
+      queryFn: async () => {
+        return await getTables();
+      },
+      placeholderData: keepPreviousData
+    });
+
+    if(isError) {
+      enqueueSnackbar("Something went wrong", {variant: "error"})
+    }
+
+    console.log(resData);
 
   return (
     <section className="bg-[#1f1f1f] h-screen overflow-hidden flex flex-col">
@@ -27,9 +44,17 @@ const Tables = () => {
  <div className="flex-1 overflow-y-auto scrollbar-hide px-16 py-4 pb-28">  
     <div className="flex flex-wrap gap-20">
               {
-                tables.map((table) => {
+                resData?.data.data.map((table) => {
                 return (
-                    <TableCard key={table.id} name={table.name} status={table.status} initials={table.initial} />
+                    <TableCard 
+                    id={table._id} 
+                    name={table.tableNo} 
+                    status={table.status} 
+                    initials={
+                      table?.currentOrder?.customerDetails.name
+                  } 
+                    seats={table.seats} 
+                    />
                 )
                 })
               }
